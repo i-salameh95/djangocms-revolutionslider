@@ -1,10 +1,9 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from cms.models import CMSPlugin
-from cms.utils.compat.dj import python_2_unicode_compatible
 
 
-@python_2_unicode_compatible
+
 class Slide(CMSPlugin):
     SLIDE_TRANSITION_CHOICES = (
         ('random-static', _('Random static')),
@@ -52,7 +51,7 @@ class Slide(CMSPlugin):
         return u"{0}".format(self.title)
 
 
-@python_2_unicode_compatible
+
 class Layer(CMSPlugin):
     INCOMING_LAYER_ANIMATION = (
         ('', _("None")),
@@ -171,7 +170,7 @@ class Layer(CMSPlugin):
         return u"{0}".format(self.layer_text)
 
 
-@python_2_unicode_compatible
+
 class Slider(CMSPlugin):
     master_start = models.IntegerField(default=1000, blank=True)
     master_end = models.IntegerField(default=5000, blank=False, null=True)
