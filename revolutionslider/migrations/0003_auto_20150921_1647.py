@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Layer',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(auto_created=True, parent_link=True, to='cms.CMSPlugin', serialize=False, primary_key=True)),
+                ('cmsplugin_ptr', models.OneToOneField(auto_created=True, parent_link=True, to='cms.CMSPlugin', serialize=False, primary_key=True, on_delete=models.CASCADE)),
                 ('start', models.IntegerField(help_text='Point in time (ms) this layer starts', default=1000)),
                 ('end', models.IntegerField(default=2500, blank=True, null=True)),
                 ('speed', models.IntegerField(default=100, blank=True, null=True)),

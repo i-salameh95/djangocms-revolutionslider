@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Slide',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin',  on_delete=models.CASCADE)),
                 ('image', models.ImageField(null=True, upload_to=b'', blank=True)),
                 ('slide_text', models.CharField(max_length=2500, null=True, blank=True)),
                 ('start', models.IntegerField(default=1000, null=True, blank=True)),
@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Slider',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin', on_delete=models.CASCADE)),
                 ('master_start', models.IntegerField(default=1000, blank=True)),
                 ('master_end', models.IntegerField(default=5000, null=True)),
                 ('master_speed', models.IntegerField(default=300, null=True)),
@@ -45,7 +45,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='slide',
             name='slider',
-            field=models.ForeignKey(related_name='slide', blank=True, to='revolutionslider.Slider', null=True),
+            field=models.ForeignKey(related_name='slide', blank=True, to='revolutionslider.Slider', null=True, on_delete=models.CASCADE),
             preserve_default=True,
         ),
     ]
