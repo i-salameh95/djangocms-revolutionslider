@@ -26,7 +26,7 @@ class Slide(CMSPluginBase):
     render_template = "revolutionslider/slide.html"
     allow_children = True
     parent_class = ['SliderRevolution', ]
-    child_classes = ['Layer', ]
+    # child_classes = ['Layer', 'Link' ]
     model = Slide
     name = _("Slide")
     require_parent = True
