@@ -1,8 +1,18 @@
 {% load cms_tags %}
-<div class="tp-caption sfr stl xlarge_white" data-x="{{ instance.position_x }}" data-y="{{ instance.position_y }}" data-speed="{{ instance.speed }}" data-easing="{{ instance.easing }}" data-start="{{ instance.start }}" data-end="{{ instance.end }}" data-splitin="{{ instance.splitin }}" data-elementdelay="{{ instance.elementdelay }}" data-endelementdelay="{{ instance.endelementdelay }}" data-splitout="{{ instance.splitout }}">
-  {% for plugin in instance.child_plugin_instances %}
-    {% render_plugin plugin %}
-  {% empty %}
-    {{ instance.layer_text|safe }}
-  {% endfor %}
-</div>
+<rs-layer
+    id="{{ instance.id }}" 
+    data-type="text"
+    data-color="#081839"
+    data-rsp_ch="on"
+    data-xy="x:r;xo:{{ instance.position_x }};y:m;yo:{{ instance.position_y }};"
+    data-text="w:nowrap;s:84,69,60,40;l:84,69,60,42;ls:-2px,-1px,-1px,-1px;fw:700;a:right;"
+    data-frame_0="x:-50,-41,-31,-19;"
+    data-frame_1="st:1190;sp:1000;sR:1190;"
+    data-frame_999="o:0;st:w;sR:6810;"
+    style="z-index:8;font-family:'Rajdhani';"> 
+    {% for plugin in instance.child_plugin_instances %}
+      {% render_plugin plugin %}
+    {% empty %}
+      {{ instance.layer_text|safe }}
+    {% endfor %}
+</rs-layer>

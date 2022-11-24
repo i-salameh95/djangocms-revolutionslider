@@ -1,5 +1,9 @@
-<div class="slide" data-transition="fade" data-slotamount="7" data-masterspeed="{{ instance.}}">
-  <img src="{{ instance.image.url }}" alt="{{ instance.text }}" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
-  <div class="tp-caption randomrotate" data-x="{{ instance.position_x }}" data-y="{{ instance.position_y }}" data-speed="{{ instance.speed }}" data-start="{{ instance.start }}" data-end="{{ instance.end }}" data-easing="{{ instance.easing }}">
-  {{ instance.text }}
-</div>
+{% load cms_tags %}
+
+<rs-slide style="position: absolute;" data-key="rs-1" data-title="Slide" data-thumb="revolution/images/rtl-slider-02-a1-100x50.jpg" 
+data-anim="ms:600;" data-in="o:0;" data-out="a:false;">
+<img src="{{ instance.image.url }}" alt="{{ instance.text }}" title="rtl-slider-02-a1" width="1920" height="900" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="{{ instance.image.url }}" data-bg="p:center top;" data-no-retina>
+{% for plugin in instance.child_plugin_instances %}
+  {% render_plugin plugin %}
+{% endfor %}
+</rs-slide>
